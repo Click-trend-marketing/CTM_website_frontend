@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1607">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 27.59px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-8 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        font-family: MinionConceptRoman-Bold, 'Minion Variable Concept';
+        font-size: 929.53px;
+        font-variation-settings: 'wght' 700, 'opsz' 11;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        font-size: 1059.02px;
+      }
+
+      .cls-3, .cls-5, .cls-6, .cls-7 {
+        font-family: MinionVariableConcept-Roman, 'Minion Variable Concept';
+        font-variation-settings: 'wght' 400, 'opsz' 11;
+      }
+
+      .cls-5 {
+        font-size: 758.58px;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-6 {
+        font-size: 177.66px;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+
+      .cls-14 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-15 {
+        letter-spacing: 0em;
+      }
+
+      .cls-16 {
+        letter-spacing: 0em;
+      }
+
+      .cls-17 {
+        letter-spacing: 0em;
+      }
+
+      .cls-18 {
+        letter-spacing: 0em;
+      }
+
+      .cls-19 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        font-size: 310.71px;
+      }
+
+      .cls-8 {
+        stroke-width: 10.09px;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(.34 1065.01)"><tspan x="0" y="0">C</tspan></text>
+  <text class="cls-3" transform="translate(465.94 1026.77)"><tspan x="0" y="0">T</tspan></text>
+  <text class="cls-5" transform="translate(865.07 1079.53) scale(1.04 1)"><tspan x="0" y="0">M</tspan></text>
+  <g>
+    <polyline class="cls-4" points="1030.5 369.5 1229.5 865.5 1438.5 451.5"/>
+    <polygon class="cls-4" points="1048.46 362.29 1244.86 859.34 1214.73 858.04 1423.73 444.04 1453.27 458.96 1244.27 872.96 1227.72 905.76 1214.14 871.66 1016.42 375.15 1048.46 362.29 1048.46 362.29"/>
+  </g>
+  <polygon class="cls-1" points="1502.01 333.82 1383.21 408.95 1507.67 474.27 1502.01 333.82"/>
+  <text class="cls-7" transform="translate(25.72 1364.56) scale(1.04 1)"><tspan class="cls-9" x="0" y="0">C</tspan><tspan x="216.56" y="0">l</tspan><tspan class="cls-18" x="297.34" y="0">i</tspan><tspan x="380.31" y="0">ck </tspan><tspan class="cls-10" x="737.93" y="0">T</tspan><tspan class="cls-19" x="913.8" y="0">r</tspan><tspan x="1026.59" y="0">e</tspan><tspan class="cls-18" x="1160.81" y="0">n</tspan><tspan x="1331.4" y="0">d </tspan></text>
+  <text class="cls-6" transform="translate(404.45 1525.57) scale(1.04 1)"><tspan class="cls-12" x="0" y="0">M</tspan><tspan class="cls-11" x="157.23" y="0">a</tspan><tspan class="cls-14" x="236.82" y="0">r</tspan><tspan class="cls-17" x="300.78" y="0">k</tspan><tspan class="cls-13" x="388.55" y="0">e</tspan><tspan class="cls-16" x="466.36" y="0">ti</tspan><tspan class="cls-15" x="568.51" y="0">n</tspan><tspan x="665.16" y="0">g </tspan></text>
+  <line class="cls-8" x1="39.19" y1="1487.76" x2="383.3" y2="1487.76"/>
+  <line class="cls-8" x1="1217.25" y1="1488.32" x2="1561.36" y2="1488.32"/>
+  <g>
+    <path class="cls-4" d="M1107.32,511.78s-6.34-11.14-5.32-26.78"/>
+    <path class="cls-4" d="M1107.32,511.78c-5.61-7.49-7.3-17.72-5.36-26.78,0,0,.04,0,.04,0,.91,9.15,2.6,18,5.32,26.78h0Z"/>
+  </g>
+</svg>
