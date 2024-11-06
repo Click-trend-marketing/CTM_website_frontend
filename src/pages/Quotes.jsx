@@ -24,7 +24,6 @@ const Contact = () => {
         e.preventDefault();
 
         try {
-            // const response = await axios.post('http://localhost:8000/api/form/create', formData);
             const response = await axios.post(`${apiUrl}/form/create`, formData);
             // Display success message from the server response
             toast.success(response.data.message);
