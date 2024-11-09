@@ -11,6 +11,7 @@ const Contact = () => {
         subject: '',
         message: '',
     });
+    const [loading, setLoading] = useState(false); // Loading state
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,12 +23,11 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Set loading to true
 
         try {
             const response = await axios.post(`${apiUrl}/form/create`, formData);
-            // Display success message from the server response
             toast.success(response.data.message);
-            // Reset the form fields
             setFormData({
                 name: '',
                 email: '',
@@ -35,8 +35,9 @@ const Contact = () => {
                 message: '',
             });
         } catch (error) {
-            // Display error message from the server response, if available
             toast.error(error.response?.data?.message || 'Error submitting form. Please try again.');
+        } finally {
+            setLoading(false); // Set loading back to false after request completes
         }
     };
 
@@ -132,7 +133,16 @@ const Contact = () => {
                                         ></textarea>
                                     </div>
                                     <div className="col-12">
-                                        <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                        <button className="btn btn-primary w-100 py-3" type="submit" disabled={loading}>
+                                            {loading ? (
+                                                <span className="text-white">
+                                                    <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                    Loading...
+                                                </span>
+                                            ) : (
+                                                "Send Message"
+                                            )}
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -154,5 +164,6 @@ const Contact = () => {
         </>
     );
 };
+
 
 export default Contact;
