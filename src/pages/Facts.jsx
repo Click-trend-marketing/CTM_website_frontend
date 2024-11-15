@@ -1,28 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';  // Ensure axios is installed
 import apiUrl from '../common';
+
 const Facts = () => {
     const [facts, setFacts] = useState({
         totalClients: 0,
         projectsDone: 0,
     });
 
+    console.log(facts, "facts");
+
     useEffect(() => {
         const fetchFacts = async () => {
             try {
-                // Make the API call to fetch facts data (replace apiUrl with your actual URL)
+                // Make the API call to fetch facts data
                 const response = await axios.get(`${apiUrl}/getUserData`);
-                setFacts(response.data.user);
+
+                // Check the structure of the response data
+                if (response.data && response.data.user) {
+                    const userData = response.data.user;
+                    // Update the state with the relevant data
+                    setFacts({
+                        totalClients: userData.totalClients,
+                        projectsDone: userData.projectsDone,
+                    });
+                }
             } catch (error) {
                 console.error('Error fetching facts:', error);
             }
         };
+
         fetchFacts();
     }, []);
 
     return (
         <>
-            {/* <!-- Facts Start --> */}
+            {/* Facts Start */}
             <div className="container-fluid facts py-5 pt-lg-0">
                 <div className="container py-5 pt-lg-0">
                     <div className="row gx-0">
@@ -35,7 +48,7 @@ const Facts = () => {
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-white mb-0">Happy Clients</h5>
-                                    <h1 className="text-white mb-0">{facts.totalClients}+</h1>
+                                    <h1 className="text-white mb-0">{facts.totalClients}+</h1> {/* Display totalClients */}
                                 </div>
                             </div>
                         </div>
@@ -48,17 +61,16 @@ const Facts = () => {
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-primary mb-0">Projects Done</h5>
-                                    <h1 className="mb-0">{facts.projectsDone}+</h1>
+                                    <h1 className="mb-0">{facts.projectsDone}+</h1> {/* Display projectsDone */}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <!-- Facts End --> */}
+            {/* Facts End */}
         </>
     );
 };
-
 
 export default Facts;
