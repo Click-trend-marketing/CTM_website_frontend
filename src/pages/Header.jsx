@@ -7,47 +7,26 @@ const Header = () => {
         phone: '',
         email: '',
     });
-    const [loading, setLoading] = useState(true);  // Loading state
-    const [error, setError] = useState(null);  // Error state
+    const [loading, setLoading] = useState(true);  // Added loading state
 
     useEffect(() => {
         const fetchContactInfo = async () => {
             try {
-                // Make the API call to fetch contact data
                 const response = await axios.get(`${apiUrl}/getUserData`);
-                if (response.data && response.data.user) {
-                    const { phone, adminUpdatedEmail: email } = response.data.user;
-                    setContactInfo({ phone, email });
-                } else {
-                    throw new Error("User data not found");
-                }
+                const { phone, adminUpdatedEmail } = response.data.user;
+
+                setContactInfo({
+                    phone: phone,
+                    email: adminUpdatedEmail,
+                });
+                setLoading(false);  // Set loading to false after the API call completes
             } catch (error) {
                 console.error('Error fetching contact info:', error);
-                setError("Failed to load contact info. Please try again later.");
-            } finally {
-                setLoading(false);  // Set loading to false once the data has been fetched
+                setLoading(false);  // Set loading to false even if there's an error
             }
         };
-
         fetchContactInfo();
-    }, []);  // Only runs once when component is mounted
-
-    // Loading and error handling
-    if (loading) {
-        return (
-            <div className="container text-center text-light">
-                <p>Loading...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="container text-center text-light">
-                <p>{error}</p>
-            </div>
-        );
-    }
+    }, []);
 
     return (
         <>
@@ -58,11 +37,11 @@ const Header = () => {
                         <div className="d-inline-flex align-items-center" style={{ height: '45px' }}>
                             <small className="me-3 text-light">
                                 <i className="fa fa-phone-alt me-2"></i>
-                                {contactInfo.phone}
+                                {loading ? 'Loading...' : contactInfo.phone} {/* Show 'Loading...' while fetching */}
                             </small>
                             <small className="text-light">
                                 <i className="fa fa-envelope-open me-2"></i>
-                                {contactInfo.email}
+                                {loading ? 'Loading...' : contactInfo.email} {/* Show 'Loading...' while fetching */}
                             </small>
                         </div>
                     </div>
