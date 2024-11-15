@@ -7,22 +7,47 @@ const Header = () => {
         phone: '',
         email: '',
     });
+    const [loading, setLoading] = useState(true);  // Loading state
+    const [error, setError] = useState(null);  // Error state
 
     useEffect(() => {
         const fetchContactInfo = async () => {
             try {
-                // Make the API call to fetch contact data (replace apiUrl with your actual URL)
+                // Make the API call to fetch contact data
                 const response = await axios.get(`${apiUrl}/getUserData`);
-                setContactInfo({
-                    phone: response.data.user.phone,  
-                    email: response.data.user.email,
-                });
+                if (response.data && response.data.user) {
+                    const { phone, adminUpdatedEmail: email } = response.data.user;
+                    setContactInfo({ phone, email });
+                } else {
+                    throw new Error("User data not found");
+                }
             } catch (error) {
                 console.error('Error fetching contact info:', error);
+                setError("Failed to load contact info. Please try again later.");
+            } finally {
+                setLoading(false);  // Set loading to false once the data has been fetched
             }
         };
+
         fetchContactInfo();
-    }, []);
+    }, []);  // Only runs once when component is mounted
+
+    // Loading and error handling
+    if (loading) {
+        return (
+            <div className="container text-center text-light">
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="container text-center text-light">
+                <p>{error}</p>
+            </div>
+        );
+    }
 
     return (
         <>
