@@ -9,48 +9,23 @@ const Footer = () => {
         email: '',
         address: ''
     });
-    const [loading, setLoading] = useState(true);  // Loading state
-    const [error, setError] = useState(null);  // Error state
 
     // Fetch user data on component mount
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`${apiUrl}/getUserData`);
-                // Check if response contains user data
-                if (response.data && response.data.user) {
-                    const { phone, adminUpdatedEmail: email, address } = response.data.user;
-                    setUserData({ phone, email, address });
-                } else {
-                    throw new Error("User data not found");
-                }
+                setUserData({
+                    phone: response.data.user.phone,
+                    email: response.data.user.adminUpdatedEmail,
+                    address: response.data.user.address,
+                });
             } catch (error) {
                 console.error("Error fetching user data:", error);
-                setError("Failed to load user data. Please try again later.");
-            } finally {
-                setLoading(false);  // Set loading to false once the data has been fetched
             }
         };
-
         fetchUserData();
     }, []);  // Only runs once when component is mounted
-
-    // Loading and error handling
-    if (loading) {
-        return (
-            <div className="container text-center text-light">
-                <p>Loading...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="container text-center text-light">
-                <p>{error}</p>
-            </div>
-        );
-    }
 
     return (
         <>
@@ -129,7 +104,8 @@ const Footer = () => {
                     <div className="row justify-content-end">
                         <div className="col-lg-8 col-md-6">
                             <div className="d-flex align-items-center justify-content-center" style={{ height: '75px' }}>
-                                <p className="mb-0">&copy; 2024 All Rights Reserved Designed by <a className="text-white border-bottom" href="https://clicktrendmarketing.com">Click Trend Marketing</a></p>
+                                <p className="mb-0">&copy; 2024 All Rights Reserved Designed by <a className="text-white border-bottom" href="https://clicktrendmarketing.com">Click Trend Marketing</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -148,5 +124,6 @@ const Footer = () => {
         </>
     );
 };
+
 
 export default Footer;

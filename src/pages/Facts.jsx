@@ -8,8 +8,6 @@ const Facts = () => {
         projectsDone: 0,
     });
 
-    console.log(facts, "facts");
-
     useEffect(() => {
         const fetchFacts = async () => {
             try {
