@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,22 @@ const Contact = () => {
         message: '',
     });
     const [loading, setLoading] = useState(false); // Loading state
+    const [userData, setUserData] = useState(null); // Set initial state to null
+
+    // Fetch user data on component mount
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`${apiUrl}/getUserData`);
+                if (response && response.data && response.data.user) {
+                    setUserData(response.data.user); // Corrected this line to extract user data
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+        fetchUserData();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -58,7 +74,7 @@ const Contact = () => {
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="mb-2">Call to ask any question</h5>
-                                    <h5 className="text-primary mb-0">+91 98154 98660</h5>
+                                    <h5 className="text-primary mb-0">{userData?.phone}</h5> {/* Added optional chaining */}
                                 </div>
                             </div>
                         </div>
@@ -69,7 +85,7 @@ const Contact = () => {
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="mb-2">Email to get free quote</h5>
-                                    <h5 className="text-primary mb-0">support@clicktrendmarketing.com</h5>
+                                    <h5 className="text-primary mb-0">{userData?.adminUpdatedEmail}</h5> {/* Added optional chaining */}
                                 </div>
                             </div>
                         </div>
@@ -80,7 +96,7 @@ const Contact = () => {
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="mb-2">Visit our office</h5>
-                                    <h5 className="text-primary mb-0">Plot No. C-201, 3rd floor, Platina tower, Phase 8B, Sector 74, Mohali</h5>
+                                    <h5 className="text-primary mb-0">{userData?.address}</h5> {/* Added optional chaining */}
                                 </div>
                             </div>
                         </div>

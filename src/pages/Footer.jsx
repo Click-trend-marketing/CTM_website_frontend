@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import apiUrl from '../common';
 
 const Footer = () => {
+    const [userData, setUserData] = useState({
+        phone: '',
+        email: '',
+        address: ''
+    });
+
+    // Fetch user data on component mount
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`${apiUrl}/getUserData`);
+                setUserData({
+                    phone: response.data.user.phone,
+                    email: response.data.user.adminUpdatedEmail,
+                    address: response.data.user.address,
+                });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+        fetchUserData();
+    }, []);  // Only runs once when component is mounted
+
     return (
         <>
-            {/* <!-- Footer Start --> */}
+            {/* Footer Start */}
             <div className="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="container">
                     <div className="row gx-5">
@@ -30,15 +55,15 @@ const Footer = () => {
                                     </div>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-geo-alt text-primary me-2"></i>
-                                        <p className="mb-0">Plot No. C-201, 3rd floor, Platina tower, Phase 8B, Sector 74, Mohali</p>
+                                        <p className="mb-0">{userData.address}</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-envelope-open text-primary me-2"></i>
-                                        <p className="mb-0">support@clicktrendmarketing.com</p>
+                                        <p className="mb-0">{userData.email}</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-telephone text-primary me-2"></i>
-                                        <p className="mb-0">+91 98154 98660</p>
+                                        <p className="mb-0">{userData.phone}</p>
                                     </div>
                                     <div className="d-flex mt-4">
                                         <a className="btn btn-primary btn-square me-2" href="https://x.com/Clicktrendmkt"><i className="fab fa-twitter fw-normal"></i></a>
@@ -86,7 +111,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            {/* <!-- Footer End --> */}
+            {/* Footer End */}
 
             {/* Back to Top */}
             <a
@@ -97,7 +122,8 @@ const Footer = () => {
                 <i className="bi bi-arrow-up"></i>
             </a>
         </>
-    )
-}
+    );
+};
+
 
 export default Footer;
