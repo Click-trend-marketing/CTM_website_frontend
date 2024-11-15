@@ -15,6 +15,7 @@ const DigitalMarketing = lazy(() => import('./pages/DigitalMarketing'));
 const WebDevelopment = lazy(() => import('./pages/WebDevelopment'));
 const AppDevelopment = lazy(() => import('./pages/AppDevelopment'));
 const CRM = lazy(() => import('./pages/Crm'));
+const Career = lazy(() => import('./pages/Career'));
 
 
 const RoutesConfig = () => {
@@ -32,6 +33,7 @@ const RoutesConfig = () => {
                 <Route path="/webdevelopment" element={<WebDevelopment />} />
                 <Route path="/appdevelopment" element={<AppDevelopment />} />
                 <Route path="/crm" element={<CRM />} />
+                <Route path="/career" element={<Career/>} />
             </Routes>
         </Suspense>
     );
