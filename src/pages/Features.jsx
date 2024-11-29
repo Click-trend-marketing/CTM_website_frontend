@@ -23,7 +23,7 @@ return(
                                 </div>
                                 <div className="col-12 wow zoomIn" data-wow-delay="0.6s">
                                     <div className="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
-                                        <i className="fa fa-award text-white"></i>
+                                        <i className="fas fa-award text-white"></i>
                                     </div>
                                     <h4>Company Culture</h4>
                                     <p className="mb-0">Our company culture is built on innovation, creativity, and a commitment to deliver excellence in everything we do.</p>
@@ -40,14 +40,14 @@ return(
                             <div className="row g-5">
                                 <div className="col-12 wow zoomIn" data-wow-delay="0.4s">
                                     <div className="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
-                                        <i className="fa fa-users-cog text-white"></i>
+                                        <i className="fas fa-users-cog text-white"></i>
                                     </div>
                                     <h4>Professional Staff</h4>
                                     <p className="mb-0">Our experienced team is dedicated to delivering top-tier solutions tailored to your business needs.</p>
                                 </div>
                                 <div className="col-12 wow zoomIn" data-wow-delay="0.8s">
                                     <div className="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
-                                        <i className="fa fa-phone-alt text-white"></i>
+                                    <i className="bis bi-telephone  text-white"></i>
                                     </div>
                                     <h4>Advanced Technology</h4>
                                     <p className="mb-0">We leverage the latest technologies to provide innovative solutions that drive your business forward.</p>
