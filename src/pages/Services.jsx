@@ -14,7 +14,8 @@ return(
                         <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                             <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                                 <div className="service-icon">
-                                    <i className="fa fa-shield-alt text-white"></i>
+                                    <i class="fas fa-shield-alt text-white" style={{transform:"rotate(45deg)"}}></i>
+
                                 </div>
                                 <h4 className="mb-3">Digital Marketing</h4>
                                 <p className="m-0">Our digital marketing strategies are designed to boost your online presence and drive measurable growth.</p>
@@ -50,7 +51,7 @@ return(
                         <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                             <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                                 <div className="service-icon">
-                                    <i className="fab fa-android text-white"></i>
+                                    <i className="fab fa-android text-white" style={{transform:"rotate(45deg)"}} ></i>
                                 </div>
                                 <h4 className="mb-3">App Development</h4>
                                 <p className="m-0">Our App development services deliver innovative, user-friendly mobile apps that enhance engagement and drive business growth.</p>
@@ -62,7 +63,7 @@ return(
                         <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                             <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                                 <div className="service-icon">
-                                    <i className="fa fa-search text-white"></i>
+                                    <i className="fa fa-search text-white" style={{transform:"rotate(40deg)"}}></i>
                                 </div>
                                 <h4 className="mb-3">SEO Optimization</h4>
                                 <p className="m-0">Our SEO strategies are designed to improve your search rankings, increase organic traffic, and boost your online visibility.</p>

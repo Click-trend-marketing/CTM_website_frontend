@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection }) => {
+    const [activeLink, setActiveLink] = useState('');
+    const [dropdownOpen, setDropdownOpen] = useState(false); // Track dropdown state
+
+    // Handle link click and set the active link
+    const handleLinkClick = (section) => {
+        setActiveLink(section);
+        scrollToSection(section); // Call scrollToSection for the clicked section
+    };
+
+    // Handle the dropdown toggle behavior
+    const handleDropdownToggle = (section) => {
+        setDropdownOpen(!dropdownOpen); // Toggle the dropdown state
+        handleLinkClick(section); // Also trigger the scroll functionality
+    };
+
     return (
         <>
             {/* Navbar & Carousel Start */}
@@ -149,22 +164,58 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav ms-auto py-0">
                             {/* <a href="index.html" className="nav-item nav-link active">Home</a> */}
-                            <Link to="/" className="nav-item nav-link active">Home</Link>
+                            <Link
+                                to="/"
+                                className={`nav-item nav-link ${activeLink === 'scrollsection1' ? 'active' : ''}`}
+                                onClick={() => handleLinkClick('scrollsection1')}
+                            >
+                                Home
+                            </Link>
                             {/* <a href="about.html" className="nav-item nav-link">About</a> */}
-                            <Link to="/about" className="nav-item nav-link">About</Link>
+                            <Link
+                                to="/"
+                                className={`nav-item nav-link ${activeLink === 'scrollsection2' ? 'active' : ''}`}
+                                onClick={() => handleLinkClick('scrollsection2')}
+                            >
+                                About
+                            </Link>
 
                             <div className="nav-item dropdown">
-                                {/* <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a> */}
-                                <Link to="/services" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</Link>
-                                <div className="dropdown-menu m-0">
-                                    <Link to="/digitalmarketing" className="dropdown-item">Digital Marketing</Link>
-                                    <Link to="/crm" className="dropdown-item">CRM</Link>
-                                    <Link to="/webdevelopment" className="dropdown-item">Web Development</Link>
-                                    <Link to="/appdevelopment" className="dropdown-item">App Development</Link>
-                                </div>
+                            <Link
+                                to="/"
+                                className={`nav-link dropdown-toggle ${activeLink === 'scrollsection3' ? 'active' : ''}`}
+                                onClick={(e) => {
+                                    e.preventDefault(); // Prevent default behavior of link
+                                    handleDropdownToggle('scrollsection3'); // Handle both scroll and dropdown toggle
+                                }}
+                                data-bs-toggle="dropdown"
+                            >
+                                Services
+                            </Link>
+                            <div className={`dropdown-menu m-0 ${dropdownOpen ? 'show' : ''}`}>
+                                <Link to="/digitalmarketing" className="dropdown-item">Digital Marketing</Link>
+                                <Link to="/crm" className="dropdown-item">CRM</Link>
+                                <Link to="/webdevelopment" className="dropdown-item">Web Development</Link>
+                                <Link to="/appdevelopment" className="dropdown-item">App Development</Link>
                             </div>
+                        </div>
+                            
                             {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
-                            <Link to="/contact" className="nav-item nav-link">Contact</Link>
+                            <Link
+                                to="/"
+                                className={`nav-item nav-link ${activeLink === 'scrollsection5' ? 'active' : ''}`}
+                                onClick={() => handleLinkClick('scrollsection5')}
+                            >
+                                Career
+                            </Link>
+                            <Link
+                                to="/"
+                                className={`nav-item nav-link ${activeLink === 'scrollsection4' ? 'active' : ''}`}
+                                onClick={() => handleLinkClick('scrollsection4')}
+                            >
+                                Contact
+                            </Link>
+                          
                         </div>
                     </div>
                 </nav>

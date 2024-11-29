@@ -70,7 +70,7 @@ const Contact = () => {
                         <div className="col-lg-4 d-flex align-items-center">
                             <div className="d-flex align-items-center wow fadeIn" data-wow-delay="0.1s">
                                 <div className="bg-primary d-flex align-items-center justify-content-center rounded" style={{ width: '60px', height: '60px' }}>
-                                    <i className="fa fa-phone-alt text-white"></i>
+                                <i className="bi bi-telephone text-white"></i>
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="mb-2">Call to ask any question</h5>
@@ -92,7 +92,7 @@ const Contact = () => {
                         <div className="col-lg-4 d-flex align-items-center">
                             <div className="d-flex align-items-center wow fadeIn" data-wow-delay="0.8s">
                                 <div className="bg-primary d-flex align-items-center justify-content-center rounded" style={{ width: '60px', height: '60px' }}>
-                                    <i className="fa fa-map-marker-alt text-white"></i>
+                                <i className="bi bi-geo-alt text-white"></i>
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="mb-2">Visit our office</h5>

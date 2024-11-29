@@ -7,8 +7,13 @@ const Header = lazy(() => import('./pages/Header'));
 const Navbar = lazy(() => import('./pages/Navbar'));
 const Footer = lazy(() => import('./pages/Footer'));
 const RoutesConfig = lazy(() => import('./Routes'));
-
 function App() {
+    const scrollToSection = (scrollsectionId) => {
+        const element = document.getElementById(scrollsectionId); // Get the section by its id
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to the section
+        }
+      };
     return (
         <div className="App">
             <Router>
@@ -19,8 +24,8 @@ function App() {
                         </div>
                     }
                 >
-                    <Header />
-                    <Navbar />
+                   <div id="scrollsection1">  <Header /></div>
+                    <Navbar scrollToSection={scrollToSection} />
                     <RoutesConfig />
                     <Footer /> 
                 </Suspense>

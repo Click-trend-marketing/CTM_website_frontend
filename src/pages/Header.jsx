@@ -36,7 +36,7 @@ const Header = () => {
                     <div className="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                         <div className="d-inline-flex align-items-center" style={{ height: '45px' }}>
                             <small className="me-3 text-light">
-                                <i className="fa fa-phone-alt me-2"></i>
+                            <i className="bi bi-telephone  me-2"></i>
                                 {loading ? 'Loading...' : contactInfo.phone} {/* Show 'Loading...' while fetching */}
                             </small>
                             <small className="text-light">
